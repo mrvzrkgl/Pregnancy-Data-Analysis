@@ -1,0 +1,77 @@
+---
+title: "**RAPOR**"
+author: "**Merve Zirekoğlu**"
+date: "2023-06-16"
+output:
+  rmdformats::material:
+    fig_caption: yes
+    highlight: tango
+    thumbnails: true
+    lightbox: true
+    gallery: true
+    use_bookdown: false
+    toc_float: true
+---
+
+# **Pregnancy Data Analysis Raport**
+
+Bu çalışma, kaggle’dan alınan Pregnancy(*) adlı, Kaiser Foundation Sağlık Planı’na kayıtlı olan ve San Francisco Doğu Körfez bölgesinde bulunan kadınların 1960 ile 1967 yılları arasındaki gebelikleri ile ilgili özellikleri incelemek amacıyla R programlama kullanılarak hazırlanmıştır. Veri seti 8 değişken ve 1236 gözlemden oluşmaktadır.
+
+(*) <https://www.kaggle.com/datasets/debjeetdas/babies-birth-weight>
+
+
+
+
+![](C:/Users/zrkgl/Desktop/Pregnancy/bebek.jpg)
+
+
+
+
+Pregnancy veri setinde, Kaiser Foundation Sağlık Planı’na kayıtlı olan ve San Francisco Doğu Körfez bölgesinde bulunan kadınların 1960 ile 1967 yılları arasındaki gebelikleri yer almaktadır. The Child Health and Development Studies (Çocuk Sağlığı ve Gelişim Çalışmaları) kendini, sağlık ve hastalığın nesiller boyunca nasıl aktarıldığını araştırmaya adamıştır. Oakland, Kaliforniya’daki Kaiser Vakfı Sağlık Planına üye olan ailelerden 1959-1967 yılları arasında bir kadının hamile olduğunu anlayıp CHDS’ye gönüllü olması ile başlamıştır.
+
+
+Veri setinde yer alan **bwt** değişkeni bebeklerin doğum ağırlıklarını, **gestation** değişkeni bebeklerin anne karnında kaldıkları süreyi, **parity** değişkeni annenin daha önce doğum yapıp yapmadığını, **height** değişkeni annenin boyunu, **weight** değişkeni annenin kilosunu ve **smoke** değişkeni ise annenin sigara içme durumunu göstermektedir. 
+
+
+
+**1 - 3. Adımında** veri setinin tanımı, problem tanımı ve amaçlar yer almaktadır.
+
+
+**4. Adımda** verilerin yapısı ve niteliği incelenerek eksik gözlemler uygun yöntemler ile dolduruldu.
+
+
+**5.Adımda** veri seti train ve test olmak üzere 2 parçaya ayrıldı. Bu anlamda veri setinin %80'i train ve %20'si test set olarak belirlendi.
+
+Çalışmanın büyük bir kısmı train üzerinden gerçekleşmekle birlikte diğer adımlarda yer alan analizler ve grafikler de bu veri seti için hazırlandı. Test set ise geçerlilik adımında model seçmek için kullanıldı. 
+
+Bu adımda ek olarak yeni bir kategorik değişken oluşturuldu.
+
+
+**6. Adımda** genel özet istatistikler, konum ölçüleri, değişim ölçüleri, biçim ölçüleri, ilişki ölçüleri, histogram grafikleri, yoğunluk grafikleri, kutu grafikleri, Q-Q grafikleri, bar ve pasta grafikleri, saçılım diyagramları, beli kırılımlar ile dağılım ve histogramlar, kabarcık çizimleri, altıgen çizimleri, kontür çizimleri, saçılım matrisleri, koşullu matrisler, korelasyon haritası, ortanca izi çizimi, konum-varyans çizimleri, etkileşim grafikleri, mozaik çizimi, chernoff yüzleri, yıldız grafikleri, çardak çizimi, temel bileşenler analizi, radar grafiği, lollipop grafiği ve bazı grfaiklerin de birleştirilmiş versiyonlar bulunmaktadır.
+
+Oldukça uzun bir adım olmakla birlikte veri setini en çok anladığımız adımlardan biridir. 
+
+Gerek özet istatistikler gerekse grafikler ile veri setimizi birçok açıdan görmüş, tanımış ve anlamış olduk.
+
+
+**7. Adımda** nitel veriler için inceleme yapıldı. Bu kapsam genel inceleme, sıklıklar, yüzdeler, Contingency Coeff-Cramer Katsayısı-Kendall Tau-b, Odds oranları gibi incelemeler yapılmıştır.
+
+
+**8. Adımda** dönüşüm uygulaması gerçekleştirildi. Dönüşüm için öncelikle histogramlar, çarpıklık ve basıklık ölçüleri incelenerek yorum yapıldı. Ardından Tukey ile çıkan sonuçlar kontrol edilip en doğru uygulamaya karar verildi. 
+
+
+**9. Adımda** model geliştirildi. Toplamda 9 model kuruldu. Model kurulurken değişken seçimi kısmında mümkün mertebe farklı kombinasyonlar denendi. 
+
+
+**10. Adımda** test veri setinden yararlanılarak modellerin RMSE, R^2 ve MAE değerleri bulunup karşılaştırıldı. En iyi model fit6 olarak belirlendi.
+
+
+**11. Adım;** sonuç adımı olarak yer almaktadır. Bu adımda fit6 modelini inceleyelim.
+
+fit6 modelini oluştururken 2 tane gözlemi veri setinden çıkardık. Bu gözlemler 530. ve 1064. gözlemler olmakla birlikte dönüşüm aşamasından sonraki scatter plotta da not aldığımız, potansiyel aykırı/uç değerler kapsamına girmekteydi. 
+
+Modeli oluştururken bwt ~ gestation + height + weight + smoke değişkenlerini kullandık. Kurulan ilk modelde, age ve parity değişkenlerinin modele pek katkılarının olmadığını görüp yorumladığımız için geri kalan değişkenler ile böyle bir model hazırlandı.
+
+Seçilen model, **train set** için **0.453 RMSE, 0.207 R^2, 0.357 MAE** değerine sahiptir.
+
+**Test set** için ise **0.458 RMSE, 0.199 R^2, 0.359 MAE** değerine sahiptir.
