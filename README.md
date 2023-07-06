@@ -1,5 +1,7 @@
 Bu çalışma, kaggle’dan alınan Pregnancy(*) adlı,  Kaiser Foundation Sağlık Planı'na kayıtlı olan ve San Francisco Doğu Körfez bölgesinde bulunan kadınların 1960 ile 1967 yılları arasındaki gebelikleri ile ilgili özellikleri incelemek amacıyla R programlama kullanılarak hazırlanmıştır. Veri seti 8 değişken ve 1236 gözlemden oluşmaktadır.
 
+ ![image](https://github.com/mrvzrkgl/Pregnancy-Data-Analysis/assets/98760141/08086078-6298-4d0a-85c7-d9c01ba63f79)
+
 (*)  <https://www.kaggle.com/datasets/debjeetdas/babies-birth-weight>
 
 
