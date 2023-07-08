@@ -22,7 +22,7 @@ Bu çalışma, kaggle’dan alınan Pregnancy(*) adlı, Kaiser Foundation Sağl�
 
 
 
-![](C:/Users/zrkgl/Desktop/Pregnancy/bebek.jpg)
+![](bebek.jpg)
 
 
 
