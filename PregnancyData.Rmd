@@ -33,7 +33,7 @@ Bu çalışma, kaggle’dan alınan Pregnancy(*) adlı,  Kaiser Foundation Sağl
 
 
 
-![](C:/Users/zrkgl/Desktop/Pregnancy/baby.jpeg)
+![](baby.jpeg)
 
 # **Veri Tanımı**
 
@@ -90,7 +90,7 @@ Sigara içmenin bilindiği üzere sağlığa, oldukça fazla zararı vardır. Ge
 
 
 
-![](C:/Users/zrkgl/Desktop/Pregnancy/babe.jpg)
+![](babe.jpg)
 
 # **Problemin Tanımı ve Amaçlar**
 
